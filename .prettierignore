@@ -1,0 +1,4 @@
+# Ignore artifacts:
+dist/main.js
+node_modules
+.eslintcache
