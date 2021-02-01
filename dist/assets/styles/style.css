@@ -1,10 +1,380 @@
-* {
+*,
+::before,
+::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+:root {
+  --white: #fff;
+  --dark-blue: #00417f;
+  --white-dark: #ecf0f3;
+}
+
 html,
 body {
   min-height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)),
+    url("https://user-images.githubusercontent.com/67546884/106492540-f062e700-64af-11eb-950b-21d367784bc0.jpeg")
+      no-repeat;
+  background-size: cover;
+  color: white;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  height: auto;
+  width: 100%;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.content {
+  display: flex;
+  padding: 2vh;
+  min-height: 100vh;
+}
+
+.content__left,
+.content__right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1vh;
+}
+
+.header {
+  text-align: center;
+  margin: 2vh 0;
+  font-family: "Rubik", sans-serif;
+  font-size: 5vmin;
+}
+
+/*------------------- search box styling---------------------*/
+.search_box {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  margin: 1rem 0;
+}
+
+.search_box__form {
+  display: flex;
+  border: 1px solid whitesmoke;
+  padding: 0.8vh 0;
+}
+
+.search_box__form:hover {
+  box-shadow: 0 1px 6px rgba(255, 255, 255, 0.9);
+}
+
+.search_box__input {
+  all: unset;
+  flex: 1;
+  font-size: 2.8vh;
+  padding: 0 2vh;
+}
+
+.search_box__btn {
+  all: unset;
+  cursor: pointer;
+  padding-right: 2vh;
+}
+
+.search_box__btn--clear {
+  fill: whitesmoke;
+}
+
+.search_box__btn--search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid whitesmoke;
+  padding-left: 2vh;
+  fill: white;
+}
+
+.search_box__error_display {
+  color: gold;
+  padding: 1vh;
+}
+
+/*---------------- weather_current styling -----------------*/
+.weather_current {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 3vh;
+  width: 100%;
+  padding: 0.5vh;
+  transition: all 0.8s ease-out;
+}
+
+.weather_current > * {
+  padding: 0.6vh;
+}
+.weather_current__location {
+  font-size: 4vh;
+}
+.weather_current__temp {
+  display: flex;
+}
+.weather_current__temp_value {
+  font-weight: 500;
+  font-size: 22vh;
+}
+.weather_current__temp_unit {
+  display: flex;
+  font-size: 4vh;
+  font-weight: 600;
+}
+.weather_current__temp_unit::before {
+  content: "\00B0";
+  font-size: 6vh;
+}
+.weather_current__info {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 1vh;
+}
+
+.weather_current__info_card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 22vh;
+  min-width: 24vh;
+  padding: 1.4vh;
+}
+
+.weather_current__info_card > * {
+  padding: 1vh 0;
+}
+
+.weather_current__info_card_heading {
+  font-size: 4vh;
+}
+
+.weather_current__info_card_icon {
+  filter: invert();
+  height: 30%;
+}
+
+/*----------- temparture toggle switch ------------*/
+.toggle_temp_switch {
+  position: relative;
+  height: 5.4vh;
+  width: 10.8vh;
+  margin-top: 3vh;
+  cursor: pointer;
+}
+
+.toggle_temp_switch__input:focus {
+  outline: none;
+}
+
+.toggle_temp_switch__input {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.toggle_temp_switch__slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #0097d1;
+}
+
+.toggle_temp_switch__slider span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  font-size: 2.4vh;
+  z-index: 5;
+}
+
+.toggle_temp_switch__slider span:first-of-type {
+  left: 50%;
+}
+
+.toggle_temp_switch__slider::before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 50%;
+  background-color: white;
+  -webkit-transition: all 0.4s ease-out;
+  -moz-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.toggle_temp_switch__input:checked + .toggle_temp_switch__slider::before {
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  transform: translateX(100%);
+}
+
+.toggle_temp_switch__slider {
+  border-radius: 4.6vh;
+}
+
+.toggle_temp_switch__slider::before {
+  border-radius: 50%;
+}
+
+.toggle_temp_switch__input:checked
+  ~ .toggle_temp_switch__slider
+  span:first-of-type {
+  opacity: 0;
+}
+
+.toggle_temp_switch__input:checked
+  ~ .toggle_temp_switch__slider
+  span:first-of-type {
+  opacity: 1;
+  color: #fff;
+}
+
+/*-------------- modal styling ------------------*/
+.modal {
+  position: fixed;
+  min-height: 100%;
+  min-width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.err_msg_modal {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  height: 40vmin;
+  width: 70vmin;
+  padding: 1rem;
+  font-size: 4vmin;
+  color: white;
+  background-color: #2f2f2f;
+  text-align: center;
+  border-radius: 12px;
+}
+
+.err_msg_modal__btn {
+  margin-top: auto;
+  align-self: center;
+  padding: 0.6rem 3rem;
+  font-weight: bold;
+  border-radius: 3vh;
+  background: tomato;
+}
+
+.loading_msg_modal {
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/*------------- mobile screen styling -------------------*/
+@media screen and (orientation: portrait) {
+  .content {
+    flex-direction: column;
+  }
+  .content__left {
+    order: 2;
+  }
+
+  .search_box__form {
+    padding: 0.8vw 0;
+  }
+
+  .search_box__input {
+    padding: 0 2vw;
+    font-size: 2vmax;
+  }
+
+  .search_box__btn {
+    padding-right: 2vw;
+  }
+
+  .image__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /*---------------- weather_current styling -----------------*/
+  .weather_current {
+    font-size: 3vw;
+    padding: 0.5vw;
+  }
+
+  .weather_current > * {
+    padding: 0.6vw;
+  }
+  .weather_current__location {
+    font-size: 4vw;
+  }
+  .weather_current__temp_value {
+    font-size: 22vw;
+  }
+  .weather_current__temp_unit {
+    font-size: 4vw;
+  }
+  .weather_current__temp_unit::before {
+    font-size: 6vw;
+  }
+  .weather_current__info {
+    gap: 1vw;
+  }
+
+  .weather_current__info_card {
+    height: 22vw;
+    min-width: 24vw;
+    padding: 1.4vw;
+  }
+
+  .weather_current__info_card > * {
+    padding: 1vw 0;
+  }
+
+  .weather_current__info_card_heading {
+    font-size: 4vw;
+  }
+
+  /*----------- temparture toggle switch ------------*/
+  .toggle_temp_switch {
+    height: 5.4vw;
+    width: 10.8vw;
+    margin-top: 3vw;
+  }
+
+  .toggle_temp_switch__slider span {
+    font-size: 2.4vw;
+  }
 }

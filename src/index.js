@@ -1,17 +1,13 @@
-import {
-  OPEN_WEATHER_API_BASE_URL,
-  OPEN_WEATHER_API_KEY,
-  OPEN_WEATHER_API_ENDPOINT_WEATHER,
-} from "./modules/constants.js";
+import { weatherDataController } from "./modules/controllers/WeatherData.js";
+import { renderDOM } from "./modules/render.js";
+import "./modules/staticEventListeners.js";
 
 (function initApp(window, document) {
   console.log("App loaded");
 
   window.addEventListener("DOMContentLoaded", async (e) => {
-    let requestURL = `${OPEN_WEATHER_API_BASE_URL}/${OPEN_WEATHER_API_ENDPOINT_WEATHER}?q=delhi&appid=${OPEN_WEATHER_API_KEY}`;
-    let response = await fetch(requestURL);
-    let weatherData = await response.json();
-
+    const weatherData = await weatherDataController.fetchData("delhi");
     console.log(weatherData);
+    renderDOM.weatherCurrent();
   });
 })(window, document);
