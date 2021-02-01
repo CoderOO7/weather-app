@@ -1,16 +1,18 @@
 import { staticDomElements } from "./domElements.js";
 
 const DOMStuff = (() => {
-  const _mainModalEl = document.querySelector(".modal");
+  const _mainModalEl = staticDomElements.mainModalEl;
 
   const _hideMainModal = () => _mainModalEl.classList.add("hidden");
   const _showMainModal = () => _mainModalEl.classList.remove("hidden");
 
   const searchBoxErrorDom = (() => {
     const searchBoxErrorDisplayEl = staticDomElements.searchBoxErrorDisplayEl;
+
     function show(msg) {
       searchBoxErrorDisplayEl.textContent = msg;
     }
+
     function close() {
       searchBoxErrorDisplayEl.textContent = "";
     }
@@ -22,10 +24,8 @@ const DOMStuff = (() => {
   })();
 
   const errorMsgDom = (() => {
-    const _errorMsgModalEl = document.querySelector(".err_msg_modal");
-    const _errorMsgModalDisplayEl = document.querySelector(
-      ".err_msg_modal__display"
-    );
+    const _errorMsgModalEl = staticDomElements.errorMsgModalEl;
+    const _errorMsgModalDisplayEl = staticDomElements.errorMsgModalDisplayEl;
 
     function show(msg) {
       _showMainModal();
@@ -45,16 +45,16 @@ const DOMStuff = (() => {
     };
   })();
 
-  const loadingMsgDom = (() => {
-    const _loadingMsgModalEl = document.querySelector(".loading_msg_modal");
+  const loadingSpinnerDom = (() => {
+    const _loadingSpinnerModalEl = staticDomElements.loadingSpinnerModalEl;
 
     function show() {
       _showMainModal();
-      _loadingMsgModalEl.classList.remove("hidden");
+      _loadingSpinnerModalEl.classList.remove("hidden");
     }
 
     function close() {
-      _loadingMsgModalEl.classList.add("hidden");
+      _loadingSpinnerModalEl.classList.add("hidden");
       _hideMainModal();
     }
 
@@ -66,7 +66,7 @@ const DOMStuff = (() => {
 
   return {
     errorMsgDom,
-    loadingMsgDom,
+    loadingSpinnerDom,
     searchBoxErrorDom,
   };
 })();

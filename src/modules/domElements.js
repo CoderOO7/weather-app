@@ -17,7 +17,9 @@ const domElements = ((document) => {
     const errorMsgModalCloseBtnEl = document.querySelector(
       ".err_msg_modal__btn--close"
     );
-    const loadingMsgModalEl = document.querySelector(".loading_msg_modal");
+    const loadingSpinnerModalEl = document.querySelector(
+      ".loading_spinner_modal"
+    );
     const toggleTempSwitchInputEl = document.querySelector(
       ".toggle_temp_switch__input"
     );
@@ -32,7 +34,7 @@ const domElements = ((document) => {
       errorMsgModalEl,
       errorMsgModalDisplayEl,
       errorMsgModalCloseBtnEl,
-      loadingMsgModalEl,
+      loadingSpinnerModalEl,
       toggleTempSwitchInputEl,
     };
   })(document);

@@ -9,6 +9,7 @@
 :root {
   --white: #fff;
   --dark-blue: #00417f;
+  --light-blue: #0097d1;
   --white-dark: #ecf0f3;
 }
 
@@ -110,6 +111,7 @@ img {
 .search_box__error_display {
   color: gold;
   padding: 1vh;
+  text-transform: capitalize;
 }
 
 /*---------------- weather_current styling -----------------*/
@@ -200,7 +202,7 @@ img {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #0097d1;
+  background-color: var(--light-blue);
 }
 
 .toggle_temp_switch__slider span {
@@ -213,7 +215,6 @@ img {
   width: 50%;
   height: 100%;
   font-size: 2.4vh;
-  z-index: 5;
 }
 
 .toggle_temp_switch__slider span:first-of-type {
@@ -273,10 +274,10 @@ img {
   position: absolute;
   display: flex;
   flex-direction: column;
-  height: 40vmin;
+  /* height: 40vmin; */
   width: 70vmin;
   padding: 1rem;
-  font-size: 4vmin;
+  font-size: 3vmin;
   color: white;
   background-color: #2f2f2f;
   text-align: center;
@@ -286,18 +287,100 @@ img {
 .err_msg_modal__btn {
   margin-top: auto;
   align-self: center;
-  padding: 0.6rem 3rem;
+  padding: 1.4vmin 6vmin;
   font-weight: bold;
-  border-radius: 3vh;
+  border-radius: 1vh;
+  margin-top: 8vh;
   background: tomato;
 }
 
-.loading_msg_modal {
-  font-size: 3rem;
-  font-weight: bold;
-  color: white;
+/*---------------  loading spinner ----------------------*/
+
+.cssload-container {
+  position: relative;
 }
 
+.cssload-whirlpool,
+.cssload-whirlpool::before,
+.cssload-whirlpool::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 2px solid rgb(204, 204, 204);
+  border-left-color: rgb(0, 0, 0);
+  border-radius: 2123px;
+  -o-border-radius: 2123px;
+  -ms-border-radius: 2123px;
+  -webkit-border-radius: 2123px;
+  -moz-border-radius: 2123px;
+}
+
+.cssload-whirlpool {
+  margin: -53px 0 0 -53px;
+  height: 106px;
+  width: 106px;
+  animation: cssload-rotate 1150ms linear infinite;
+  -o-animation: cssload-rotate 1150ms linear infinite;
+  -ms-animation: cssload-rotate 1150ms linear infinite;
+  -webkit-animation: cssload-rotate 1150ms linear infinite;
+  -moz-animation: cssload-rotate 1150ms linear infinite;
+}
+
+.cssload-whirlpool::before {
+  content: "";
+  margin: -49px 0 0 -49px;
+  height: 94px;
+  width: 94px;
+  animation: cssload-rotate 1150ms linear infinite;
+  -o-animation: cssload-rotate 1150ms linear infinite;
+  -ms-animation: cssload-rotate 1150ms linear infinite;
+  -webkit-animation: cssload-rotate 1150ms linear infinite;
+  -moz-animation: cssload-rotate 1150ms linear infinite;
+}
+
+.cssload-whirlpool::after {
+  content: "";
+  margin: -62px 0 0 -62px;
+  height: 119px;
+  width: 119px;
+  animation: cssload-rotate 2300ms linear infinite;
+  -o-animation: cssload-rotate 2300ms linear infinite;
+  -ms-animation: cssload-rotate 2300ms linear infinite;
+  -webkit-animation: cssload-rotate 2300ms linear infinite;
+  -moz-animation: cssload-rotate 2300ms linear infinite;
+}
+
+@keyframes cssload-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@-o-keyframes cssload-rotate {
+  100% {
+    -o-transform: rotate(360deg);
+  }
+}
+
+@-ms-keyframes cssload-rotate {
+  100% {
+    -ms-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes cssload-rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes cssload-rotate {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+/*----------------- Miscallaneous -------------------*/
 .hidden {
   display: none !important;
 }

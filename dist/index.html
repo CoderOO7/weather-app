@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
-
+    <link rel="icon" href="./assets/images/svg/title-icon.svg" type="image/svg" sizes="16x16"> 
+    
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <!-- Google font stylesheet -->
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@800&display=swap" rel="stylesheet"> 
@@ -22,7 +23,7 @@
             </header>
             <div class="search_box">
                 <form class="search_box__form">
-                    <input class="search_box__input" name="city" type="text">
+                    <input class="search_box__input" name="city" type="text" placeholder="Enter city name">
                     <button class="btn search_box__btn search_box__btn--clear" type="button">
                         <span>
                             <svg focusable="false" width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
@@ -55,8 +56,10 @@
                 OK
             </button>
         </section>
-        <section class="loading_msg_modal hidden">
-            <p>Loading...</p>
+        <section class="loading_spinner_modal hidden">
+            <div class="cssload-container">
+                <div class="cssload-whirlpool"></div>
+            </div>
         </section>
     </aside>
 

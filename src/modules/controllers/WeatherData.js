@@ -2,6 +2,7 @@ import {
   OPEN_WEATHER_API_BASE_URL,
   OPEN_WEATHER_API_KEY,
   OPEN_WEATHER_API_ENDPOINT_WEATHER,
+  API_TIMEOUT,
 } from "../constants.js";
 import {
   mpsTokmph,
@@ -9,7 +10,9 @@ import {
   kelvinToCelsius,
   kelvinToFahrenheit,
 } from "../helper.js";
+import { request } from "../helper.js";
 import { staticDomElements, dynamicDomElements } from "../domElements.js";
+import { DOMStuff } from "../domStuff.js";
 
 const weatherDataController = (() => {
   const _localWeatherStore = [];
@@ -23,28 +26,47 @@ const weatherDataController = (() => {
   }
 
   function getData() {
-    console.log(_localWeatherStore);
     return [..._localWeatherStore];
   }
 
+  /**
+   * Retur the url for icon image based on the icon name.
+   * @param {string} icon - The Icon name
+   * @return {string} - The URL string of Icon image.
+   */
   function getIconUrl(icon) {
     return `https://openweathermap.org/img/wn/${icon}@4x.png`;
   }
 
+  /**
+   * Fetch current weather data for given city using openWeather API.
+   * @param {string} city - The city name for which current weather data needed.
+   * @return {Promise.<Object>} - The Promise object which resolve as soon as
+   * API response received.
+   */
   async function fetchData(city) {
     try {
+      DOMStuff.loadingSpinnerDom.show();
+
       let requestURL = `${OPEN_WEATHER_API_BASE_URL}/${OPEN_WEATHER_API_ENDPOINT_WEATHER}?q=${city}&appid=${OPEN_WEATHER_API_KEY}`;
-      let response = await fetch(requestURL, { mode: "cors" });
+      let response = await request(requestURL, {}, API_TIMEOUT);
       let weatherData = await response.json();
 
       emptyStore();
       addData(weatherData);
-      return getData()[0];
     } catch (error) {
-      console.error(error);
+      DOMStuff.loadingSpinnerDom.close();
+      return Promise.reject(error);
     }
+
+    DOMStuff.loadingSpinnerDom.close();
+    return getData()[0];
   }
 
+  /**
+   * The Click event handler for Temperature Toggle Button
+   * @param {object} - The Mouse 'Click' event
+   */
   function handleToggleTempSwitchClick(e) {
     const toggleTempSwitchInputEl = staticDomElements.toggleTempSwitchInputEl;
     const weatherData = getData()[0];
