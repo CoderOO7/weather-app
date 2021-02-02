@@ -4,11 +4,23 @@ import { clearNode } from "./helper.js";
 import { kelvinToCelsius, mpsTokmph } from "./helper.js";
 
 const renderDOM = ((document) => {
+  async function _renderBodyBackground(weatherId) {
+    if (weatherId) {
+      const imageUrl = await weatherDataController.getWeatherImageUrl(
+        weatherId
+      );
+      const bodyEl = staticDomElements.bodyEl;
+      bodyEl.style.background = `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)),
+                                                    url("${imageUrl}") no-repeat`;
+    }
+  }
+
   function weatherCurrent() {
     const contentLeftEl = staticDomElements.contentLeftEl;
     const weatherData = weatherDataController.getData()[0];
     clearNode(contentLeftEl);
 
+    _renderBodyBackground(weatherData.weather[0].id);
     const _weatherCurrentEl = document.createElement("div");
     _weatherCurrentEl.classList.add("weather_current");
 

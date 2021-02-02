@@ -11,6 +11,13 @@ https://coderoo7.github.io/weather-app/
 ![weather-app-1](https://user-images.githubusercontent.com/67546884/106535542-58382280-64ee-11eb-8bdc-dd21ffcfcba6.png)
 ![weather-app-2](https://user-images.githubusercontent.com/67546884/106535562-65551180-64ee-11eb-9ce7-b6f967cfc09f.png)
 
+## Feature
+
+- Show current weather data for seached city.
+- Background images change according to current weather condition.
+- User can toggle temperature F/C.
+- If input city name is not found then current weather of city having similar name is shown.
+
 ## TechStack
 
 - **Frontend:** HTML5/CSS3, Vanilla JavaScript(ES6).

@@ -1,5 +1,6 @@
 const domElements = ((document) => {
   const staticDomElements = ((document) => {
+    const bodyEl = document.querySelector(".body");
     const contentLeftEl = document.querySelector(".content__left");
     const contentRightEl = document.querySelector(".content__right");
     const searchBoxFormEl = document.querySelector(".search_box__form");
@@ -25,6 +26,7 @@ const domElements = ((document) => {
     );
 
     return {
+      bodyEl,
       contentLeftEl,
       contentRightEl,
       searchBoxFormEl,

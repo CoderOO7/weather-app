@@ -39,6 +39,19 @@ const weatherDataController = (() => {
   }
 
   /**
+   * Fetch local weatherImage json file.
+   * @param {string} weatherId - The weather Id used as reference to get weather image url.
+   * @return {Promise.<Object>} - The Promise object which resolve as soon as
+   * API response received.
+   */
+  async function getWeatherImageUrl(weatherId) {
+    const key = +String(weatherId)[0];
+    const response = await fetch("assets/json/weatherImage.json");
+    const weatherImage = await response.json();
+    return weatherImage[key];
+  }
+
+  /**
    * Fetch current weather data for given city using openWeather API.
    * @param {string} city - The city name for which current weather data needed.
    * @return {Promise.<Object>} - The Promise object which resolve as soon as
@@ -99,6 +112,7 @@ const weatherDataController = (() => {
     fetchData,
     getIconUrl,
     handleToggleTempSwitchClick,
+    getWeatherImageUrl,
   };
 })();
 
