@@ -1,6 +1,6 @@
 # weather-app
 
-A weather web app created in Vanilla JavaScript using [openWeather]('https://openweathermap.org/api') API.
+A weather web app created in Vanilla JavaScript using [openWeather](https://openweathermap.org/api) API.
 
 ## Live Link
 
@@ -8,7 +8,7 @@ https://coderoo7.github.io/weather-app/
 
 ## Screenshot
 
-![weather-app-1](https://user-images.githubusercontent.com/67546884/106535542-58382280-64ee-11eb-8bdc-dd21ffcfcba6.png)
+![weather-app-1](https://user-images.githubusercontent.com/67546884/106535542-58382280-64ee-11eb-8bdc-dd21ffcfcba6.png)<br><br>
 ![weather-app-2](https://user-images.githubusercontent.com/67546884/106535562-65551180-64ee-11eb-9ce7-b6f967cfc09f.png)
 
 ## Feature
@@ -23,7 +23,7 @@ https://coderoo7.github.io/weather-app/
 - **Frontend:** HTML5/CSS3, Vanilla JavaScript(ES6).
 - **Backend:** Node.js v10.
 - **Tools:** Webpack for running live server and creating build.
-- **API Services:** [openWeather]("ttps://openweathermap.org/api") API.
+- **API Services:** [openWeather](https://openweathermap.org/api) API.
 
 ## Requirement
 
