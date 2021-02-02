@@ -21,10 +21,8 @@ body {
 body {
   display: flex;
   flex-direction: column;
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)),
-    url("https://user-images.githubusercontent.com/67546884/106492540-f062e700-64af-11eb-950b-21d367784bc0.jpeg")
-      no-repeat;
-  background-size: cover;
+  background: linear-gradient(#5f2c82, #49a09d);
+  background-size: cover !important;
   color: white;
 }
 
@@ -182,7 +180,7 @@ img {
   position: relative;
   height: 5.4vh;
   width: 10.8vh;
-  margin-top: 3vh;
+  margin: 3vh 0;
   cursor: pointer;
 }
 
@@ -394,6 +392,11 @@ img {
     order: 2;
   }
 
+  .content__left,
+  .content__right {
+    justify-content: flex-start;
+  }
+
   .search_box__form {
     padding: 0.8vw 0;
   }
@@ -437,7 +440,6 @@ img {
   }
 
   .weather_current__info_card {
-    height: 22vw;
     min-width: 24vw;
     padding: 1.4vw;
   }
@@ -447,17 +449,17 @@ img {
   }
 
   .weather_current__info_card_heading {
-    font-size: 4vw;
+    font-size: 6vw;
   }
 
   /*----------- temparture toggle switch ------------*/
   .toggle_temp_switch {
-    height: 5.4vw;
-    width: 10.8vw;
+    height: 8.4vw;
+    width: 16.8vw;
     margin-top: 3vw;
   }
 
   .toggle_temp_switch__slider span {
-    font-size: 2.4vw;
+    font-size: 4.4vw;
   }
 }
